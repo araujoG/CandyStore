@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/all.css"> <!-- Font awesome->css->all.css -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+	<div class="bgimage d-none d-lg-block"> </div>
+	<div class="bgimage2 l-2 d-block d-lg-none"></div>
+	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
+		<!--Barra de navegação expandida somente em dispositivos md em diante-->
+		<!--caso utilize o fixed ao invés do sticky-top é necessário adicionar margin top na imagem para que ela não fique cortada-->
+		<div class="container">
+			<a class="navbar-brand" href="#"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
+					alt="Candy Store"></a>
+			<!--alt é para o auxilio de deficientes visuais-->
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu"
+				aria-expanded="false" aria-label="Botão de navegação">
+				<!--data-toggle é o algoritmo que será executado ao clicar-->
+				<!--aria é para o auxilio de deficientes visuais-->
+				<!--data-target é o id do conteudo do menu colapsado precedido de # para indicar q é um id-->
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menu">
+				<div class="navbar-nav my-sm-2 my-lg-auto">
+					<div class="dropdown">
+						<a class="nav-link nav-item dropdown-toggle" data-toggle="dropdown" href="#">Categorias</a>
+						<!--Dropdown-toggle insere a seta para acionar o drop down-->
+						<div class="dropdown-menu dropdown-menu w-25">
+							<a class="dropdown-item" href="#">Balas</a>
+							<a class="dropdown-item" href="#">Chicletes</a>
+							<a class="dropdown-item" href="#">Chocolates</a>
+							<a class="dropdown-item" href="#">Pirulitos</a>
+						</div>
+					</div>
+				</div>
+				<form class="form-inline mb-sm-2 my-lg-auto mx-auto">
+					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+					<button class="btn btn-outline-info my-2 my-sm-0 ml-0" type="submit"><i
+							class="fas fa-search"></i></button>
+				</form>
+				<div class="navbar-nav">
+					<a class="nav-link nav-item" href="#pedidos">Meu Carrinho</a>
+					<a class="nav-link nav-item" href="#janelamodal"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="card border-secondary login mx-auto my-5 px-5 w-90">
+
+		<div class="text-center mb-3">
+			<h1 class="h3 font-weight-normal">Fazer Login</h1>
+		</div>
+
+		<div class=" mb-3">
+			<label>Usuário:</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+				</div>
+				<input type="email" id="inputEmail" class="form-control" placeholder="Email" required=""
+					autofocus="">
+			</div>
+		</div>
+
+		<div class=" mb-3">
+			<label>Senha:</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon2"><i class="fas fa-lock"></i></span>
+				</div>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Sua Senha" required=""
+					autofocus="">
+			</div>
+		</div>
+
+		<div class="custom-control custom-checkbox mb-2">
+			<input type="checkbox" value="remember-me" class="custom-control-input" id="customControlValidation1"
+				required>
+			<label class="custom-control-label" for="customControlValidation1">Lembrar de mim</label>
+		</div>
+
+		<div class="d-flex justify-content-between" >
+			<a class="my-auto" href="#">Cadastre-se</a>
+			<button class="btn btn-lg btn-outline-primary " type="submit">Entrar</button>
+		</div>
+		
+	</div>
+
+	<div class="w-100 bg-primary">
+		<div class="w-75 row justify-content-around mx-auto pb-4">
+			<div class="col-md-4 mt-4">
+				<h4 class="fontWhite">Endereço</h4>
+				<p>Av. Sete de Setembro, 211 - 165A - Icaraí, Niterói - RJ, 24230-252</p>
+			</div>
+
+			<div class="col-md-3 mt-4">
+				<h4 class="fontWhite">Horário de Funcionamento</h4>
+				<span>Terça a Sábado 8h às 18h</span>
+				<br>
+				<span>Domingos e Feriados 9h às 18h</span>
+			</div>
+
+			<div class="col-md-3 mt-4">
+				<h4 class="fontWhite">Formas de Pagamento</h4>
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

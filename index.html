@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Candy Store</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/all.css"> <!-- Font awesome->css->all.css -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+	<div class="bgimage d-none d-lg-block"> </div>
+	<div class="bgimage2 l-2 d-block d-lg-none"></div>
+	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
+		<!--Barra de navegação expandida somente em dispositivos md em diante-->
+		<!--caso utilize o fixed ao invés do sticky-top é necessário adicionar margin top na imagem para que ela não fique cortada-->
+		<div class="container">
+			<a class="navbar-brand" href="#"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
+					alt="Candy Store"></a>
+			<!--alt é para o auxilio de deficientes visuais-->
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
+				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
+				<!--data-toggle é o algoritmo que será executado ao clicar-->
+				<!--aria é para o auxilio de deficientes visuais-->
+				<!--data-target é o id do conteudo do menu colapsado precedido de # para indicar q é um id-->
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menu">
+				<div class="navbar-nav my-sm-2 my-lg-auto">
+					<div class="dropdown">
+						<a class="nav-link nav-item dropdown-toggle" data-toggle="dropdown" href="#">Categorias</a>
+						<!--Dropdown-toggle insere a seta para acionar o drop down-->
+						<div class="dropdown-menu dropdown-menu w-25">
+							<a class="dropdown-item" href="#">Balas</a>
+							<a class="dropdown-item" href="#">Chicletes</a>
+							<a class="dropdown-item" href="#">Chocolates</a>
+							<a class="dropdown-item" href="#">Pirulitos</a>
+						</div>
+					</div>
+				</div>
+				<form class="form-inline mb-sm-2 my-lg-auto mx-auto">
+					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+					<button class="btn btn-outline-info my-2 my-sm-0 ml-0" type="submit"><i
+							class="fas fa-search"></i></button>
+				</form>
+				<div class="navbar-nav">
+					<a class="nav-link nav-item" href="#pedidos">Meu Carrinho</a>
+					<a class="nav-link nav-item" href="#janelamodal"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div id="carouselPromocao" class="carousel slide mb-3 mt-3 mx-auto w-85" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselPromocao" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselPromocao" data-slide-to="1"></li>
+			<li data-target="#carouselPromocao" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100" src="assets/images/festivalDeChocolates.png" alt="Primeiro Slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" src="assets/images/freteGratis.png" alt="Segundo Slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" src="assets/images/dentaduraPromocao.png" alt="Terceiro Slide">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselPromocao" role="button" data-slide="prev">
+			<span class="fas fa-chevron-circle-left"></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselPromocao" role="button" data-slide="next">
+			<span class="fas fa-chevron-circle-right"></span>
+			<span class="sr-only">Próximo</span>
+		</a>
+	</div>
+
+	<div class="mx-auto w-75">
+		<h4 class="mb-3" id="maisVendidos">Mais Vendidos</h4>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/MEM.png" alt="M e M chocolate">
+					<div class="card-body text-center">
+						<h5 class="card-title">Confeito M&M chocolate ao leite</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINIAMORAS.png" alt="Fini Amoras">
+					<div class="card-body text-center">
+						<h5 class="card-title">Bala de gelatina fini amoras</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINIDENTADURAS.png"
+						alt="Dentaduras Fini">
+					<div class="card-body text-center">
+						<h5 class="card-title">Bala de gelatina fini dentaduras</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/LAKA.png" alt="Lacta Laka">
+					<div class="card-body text-center">
+						<h5 class="card-title">Barra de chocolate lacta laka</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINITUBES.png" alt="Tubes Fini">
+					<div class="card-body text-center">
+						<h5 class="card-title">Bala de gelatina fini tubes</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/KITKATAOLEITE.png"
+						alt="KitKat Ao Leite">
+					<div class="card-body text-center">
+						<h5 class="card-title">Chocolate KitKat ao leite</h5>
+						<p class="text-secondary font-weight-bold">R$99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<div class="w-100 bg-primary">
+		<div class="w-75 row justify-content-around mx-auto pb-4">
+			<div class="col-md-4 mt-4">
+				<h4 class="fontWhite">Endereço</h4>
+				<p>Av. Sete de Setembro, 211 - 165A - Icaraí, Niterói - RJ, 24230-252</p>
+			</div>
+
+			<div class="col-md-3 mt-4">
+				<h4 class="fontWhite">Horário de Funcionamento</h4>
+				<span>Terça a Sábado 8h às 18h</span>
+				<br>
+				<span>Domingos e Feriados 9h às 18h</span>
+			</div>
+
+			<div class="col-md-3 mt-4">
+				<h4 class="fontWhite">Formas de Pagamento</h4>
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
