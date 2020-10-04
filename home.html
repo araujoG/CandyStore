@@ -19,8 +19,8 @@
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<!--Barra de navegação expandida somente em dispositivos md em diante-->
 		<!--caso utilize o fixed ao invés do sticky-top é necessário adicionar margin top na imagem para que ela não fique cortada-->
-		<div class="container">
-			<a class="navbar-brand" href="#"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
+		<div class="container carterOne">
+			<a class="navbar-brand" href="/home.html"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
 					alt="Candy Store"></a>
 			<!--alt é para o auxilio de deficientes visuais-->
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
@@ -33,7 +33,7 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<div class="navbar-nav my-sm-2 my-lg-auto">
 					<div class="dropdown">
-						<a class="nav-link nav-item dropdown-toggle" data-toggle="dropdown" href="#">Categorias</a>
+						<a class="nav-link nav-item dropdown-toggle " data-toggle="dropdown" href="#">Categorias</a>
 						<!--Dropdown-toggle insere a seta para acionar o drop down-->
 						<div class="dropdown-menu dropdown-menu w-25">
 							<a class="dropdown-item" href="#">Balas</a>
@@ -44,13 +44,20 @@
 					</div>
 				</div>
 				<form class="form-inline mb-sm-2 my-lg-auto mx-auto">
-					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-					<button class="btn btn-outline-danger my-2 my-sm-0 ml-0 botaoPesquisa" type="submit"><i
-							class="fas fa-search"></i></button>
+					<div class="input-group">
+						<input class="form-control mr-0" type="search" placeholder="Pesquisar"
+							aria-label="Pesquisar">
+						<div class="input-group-append">
+							<button class="btn btn-danger botaoPesquisa" type="submit"><i
+								class="fas fa-search"></i></button>
+						</div>
+					</div>
+
+					
 				</form>
 				<div class="navbar-nav">
-					<a class="nav-link nav-item" href="#pedidos">Meu Carrinho</a>
-					<a class="nav-link nav-item" href="#janelamodal"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+					<a class="nav-link nav-item" href="#">Meu Carrinho</a>
+					<a class="nav-link nav-item" href="/login.html"><i class="fas fa-sign-in-alt"></i> Entrar</a>
 				</div>
 			</div>
 		</div>
@@ -150,44 +157,125 @@
 				</div>
 			</div>
 		</div>
+		<h4 class="mb-3" id="maisVendidos">Lançamentos</h4>
 
+		<div class="row">
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone2.png"
+						alt="chocolate toblerone meio amargo">
+					<div class="card-body text-center">
+						<h5 class="card-title">Chocolate toblerone meio amargo</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone1.png"
+						alt="chocolate Toblerone ao leite">
+					<div class="card-body text-center">
+						<h5 class="card-title">Chocolate toblerone ao leite</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone3.png"
+						alt="chocolate toblerone branco">
+					<div class="card-body text-center">
+						<h5 class="card-title">Chocolate toblerone branco</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="Row my-4 bg-secondary py-4">
+
+	<div class="Row mb-4 mt-1 bg-secondary py-4">
 		<div class="emailOfertas mx-auto">
-			<h5 class="text-center fontWhite mb-3">Cadastre seu email e receba todas as ofertas. Não perca NENHUMA das nossas promoções exclusivas!</h5>
+			<h5 class="text-center fontWhite mb-3">Cadastre seu email e fique sabendo de todas as ofertas. Não perca
+				NENHUMA das nossas promoções exclusivas!</h5>
 			<form class="form-inline mb-sm-2 my-lg-auto justify-content-center px-3">
 				<input class="form-control" type="email" placeholder="Email" aria-label="Cadastre seu Email">
-				<button class="btn btn-info mx-2 font-weight-bold"
-					type="submit">cadastrar</button>
+				<button class="btn btn-info mx-2 font-weight-bold" type="submit">Cadastrar</button>
 			</form>
 		</div>
 	</div>
+
+	<div class="mx-auto w-75">
+		<h4 class="mb-3" id="maisVendidos">Festival Harry Potter</h4>
+
+		<div class="row">
+
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpfeijoes.png"
+						alt="feijõezinhos de todos os sabores harry potter">
+					<div class="card-body text-center">
+						<h5 class="card-title">Feijõezinhos de todos os sabores harry potter</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpcerveja.png"
+						alt="cerveja amanteigada harry potter">
+					<div class="card-body text-center">
+						<h5 class="card-title">Cerveja amanteigada harry potter</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="card mb-3">
+					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpsapo.png"
+						alt="sapos de chocolate harry potter">
+					<div class="card-body text-center">
+						<h5 class="card-title">Chocolate sapos ao leite harry potter</h5>
+						<p class="preco">R$ 99,99</p>
+						<button class="btn btn-outline-primary ">Comprar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 	<div class="w-100 bg-primary">
-		<div class="w-75 row justify-content-around mx-auto pb-4">
-			<div class="col-md-4 mt-4">
-				<h4 class="fontWhite">Endereço</h4>
+		<div class="w-85 row justify-content-around mx-auto py-4">
+			<div class="col-md-3">
+				<h5 class="fontWhite">Endereço</h5>
 				<p>Av. Sete de Setembro, 211 - 165A - Icaraí, Niterói - RJ, 24230-252</p>
 			</div>
-
-			<div class="col-md-3 mt-4">
-				<h4 class="fontWhite">Horário de Funcionamento</h4>
+			<div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+				<h5 class="fontWhite">Horário de Funcionamento</h5>
 				<span>Terça a Sábado 8h às 18h</span>
 				<br>
 				<span>Domingos e Feriados 9h às 18h</span>
 			</div>
-
-			<div class="col-md-3 mt-4">
-				<h4 class="fontWhite">Formas de Pagamento</h4>
-				<img class="bandeirasCartao" src="/assets/images/visa.png">
-				<img class="bandeirasCartao" src="/assets/images/master.png">
-				<img class="bandeirasCartao" src="/assets/images/paypal.png">
-				<img class="bandeirasCartao" src="/assets/images/boleto.png">
-				<img class="bandeirasCartao" src="/assets/images/master.png">
-				<img class="bandeirasCartao" src="/assets/images/visa.png">
-				<img class="bandeirasCartao" src="/assets/images/boleto.png">
-				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+			<div class="col-md-2 mb-3 mb-md-0">
+				<a class="text-light redeSocial" href="#"><i class="fab fa-twitter"></i></a>
+				<a class="text-light redeSocial mx-2" href="#"><i class="fab fa-instagram"></i></a>
+				<a class="text-light redeSocial" href="#"><i class="fab fa-facebook-square"></i></a>
 			</div>
 
+			<div class="col-md-3">
+
+				<h5 class="fontWhite">Formas de Pagamento</h5>
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+			</div>
 		</div>
 	</div>
 

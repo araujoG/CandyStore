@@ -32,8 +32,7 @@
     color: rgba(255, 255, 255,0.9);
 }
 
-.botaoPesquisa {
-    border-width: 2px;
+.botaoPesquisa, .botaoPesquisa:hover {
     border-radius: 40%;
 }
 
@@ -46,9 +45,10 @@ body{
     font-family: Roboto;
 }
 
-h1{
+.carterOne{
     font-family: CarterOne;
 }
+
 
 @font-face{
     font-family: CarterOne;
@@ -58,10 +58,6 @@ h1{
 @font-face{
     font-family: Roboto;
     src: url(../webfonts/Roboto-Regular.ttf);
-}
-
-.nav-item{
-    font-family: CarterOne;
 }
 
 .tooltip-inner{
@@ -109,6 +105,18 @@ h1{
 .fontWhite{
     color: white;
 }
+.redeSocial{
+    font-size: 30px;
+}
+
+.redeSocial:hover{
+    color: rgba(255, 255, 255,0.9);
+    
+}
+
+.redeSocial a:hover{
+    transform: translateY(30px);
+}
 
 .bandeirasCartao{
     max-width: 45px;
@@ -128,6 +136,7 @@ h1{
     color: orange;
 }
 
-.btn{
+.btn, h5.fontWhite{
     font-family: CarterOne;
 }
+
