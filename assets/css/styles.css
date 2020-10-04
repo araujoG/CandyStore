@@ -140,3 +140,12 @@ body{
     font-family: CarterOne;
 }
 
+.fontLink{
+    color: rgb(33, 37, 41);
+}
+
+.fontLink:hover{
+    color: rgba(33, 37, 41,0.8);
+    font-weight: bolder;
+    text-decoration: none;
+}
