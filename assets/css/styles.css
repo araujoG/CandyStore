@@ -49,6 +49,13 @@ body{
     font-family: CarterOne;
 }
 
+.HP{
+    font-family: HP;
+}
+@font-face{
+    font-family: HP;
+    src: url(../webfonts/HARRYP.TTF);
+}
 
 @font-face{
     font-family: CarterOne;
@@ -58,6 +65,15 @@ body{
 @font-face{
     font-family: Roboto;
     src: url(../webfonts/Roboto-Regular.ttf);
+}
+
+@font-face{
+    font-family: HumbleBoys;
+    src: url(../webfonts/HumbleBoys.otf);
+}
+
+.humbleBoys{
+    font-family: HumbleBoys;
 }
 
 .tooltip-inner{
@@ -148,4 +164,28 @@ body{
     color: rgba(33, 37, 41,0.8);
     font-weight: bolder;
     text-decoration: none;
+}
+
+.inputQuantidade{
+    width: 130px;
+}
+
+.precoCarrinho{
+    font-family: CarterOne;
+    color: orange;
+    font-size: 25px;
+}
+
+.lixeiraCarrinho{
+    font-size: 25px;
+}
+
+.text-pink{
+    color: #e05177;
+}
+
+.arredondarBottom{
+    border-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }

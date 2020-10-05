@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Carrinho</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/all.css"> <!-- Font awesome->css->all.css -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+	<div class="bgimage d-none d-lg-block"> </div>
+	<div class="bgimage2 l-2 d-block d-lg-none"></div>
+	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
+		<!--Barra de navegação expandida somente em dispositivos md em diante-->
+		<!--caso utilize o fixed ao invés do sticky-top é necessário adicionar margin top na imagem para que ela não fique cortada-->
+		<div class="container carterOne">
+			<a class="navbar-brand" href="/home.html"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
+					alt="Candy Store"></a>
+			<!--alt é para o auxilio de deficientes visuais-->
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
+				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
+				<!--data-toggle é o algoritmo que será executado ao clicar-->
+				<!--aria é para o auxilio de deficientes visuais-->
+				<!--data-target é o id do conteudo do menu colapsado precedido de # para indicar q é um id-->
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menu">
+				<div class="navbar-nav my-sm-2 my-lg-auto">
+					<div class="dropdown">
+						<a class="nav-link nav-item dropdown-toggle " data-toggle="dropdown" href="#">Categorias</a>
+						<!--Dropdown-toggle insere a seta para acionar o drop down-->
+						<div class="dropdown-menu dropdown-menu w-25">
+							<a class="dropdown-item" href="#">Balas</a>
+							<a class="dropdown-item" href="#">Chicletes</a>
+							<a class="dropdown-item" href="#">Chocolates</a>
+							<a class="dropdown-item" href="#">Pirulitos</a>
+						</div>
+					</div>
+				</div>
+				<form class="form-inline mb-sm-2 my-lg-auto mx-auto">
+					<div class="input-group">
+						<input class="form-control mr-0" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+						<div class="input-group-append">
+							<button class="btn btn-warning fontWhite botaoPesquisa" type="submit"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</div>
+
+
+				</form>
+				<div class="navbar-nav">
+					<a class="nav-link nav-item" href="carrinho.html">Meu Carrinho</a>
+					<a class="nav-link nav-item" href="/login.html"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container py-3">
+		<h4 class="carterOne">Meu Carrinho</h4>
+		<div class="row my-4">
+			<div class="col-lg-8">
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Blue denim shirt Blue denim shirt Blue denim shirt Blue denim shirt</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 lixeiraCarrinho "><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade1"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade1" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade1"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Blue denim shirt Blue denim shirt Blue denim shirt Blue denim shirt</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 lixeiraCarrinho "><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade2"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade2" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade2"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Blue denim shirt Blue denim shirt Blue denim shirt Blue denim shirt</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 lixeiraCarrinho "><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade3"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade3" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade3"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+
+						<h5 class="mb-3">Valor total</h5>
+
+						<ul class="list-group list-group-flush">
+							<li
+								class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+								Subtotal
+								<span class="preco text-body">R$ 53.98</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+								Frete
+								<span class="text-success">Gratis</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+								<div>
+									<span><strong>Valor Final</strong></span>
+								</div>
+								<span class="preco text-body">R$ 53.98</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary mr-auto btn-block pb-2 arredondarBottom mb-3">
+					Finalizar Compra
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="w-100 bg-primary">
+		<div class="w-85 row justify-content-around mx-auto py-4">
+			<div class="col-md-3">
+				<h5 class="fontWhite">Sobre nós</h5>
+				<ul class="list-unstyled">
+					<li><a class="fontLink" href="#">Quem somos</a></li>
+					<li><a class="fontLink" href="#">Time de desenvolvedores</a></li>
+					<li><a class="fontLink" href="#">Trabalhe conosco</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+				<h5 class="fontWhite">Horário de Funcionamento</h5>
+				<span>Terça a Sábado 8h às 18h</span>
+				<br>
+				<span>Domingos e Feriados 9h às 18h</span>
+			</div>
+			<div class="col-md-2 mb-3 mb-md-0">
+				<a class="text-light redeSocial" href="#"><i class="fab fa-twitter"></i></a>
+				<a class="text-light redeSocial mx-2" href="#"><i class="fab fa-instagram"></i></a>
+				<a class="text-light redeSocial" href="#"><i class="fab fa-facebook-square"></i></a>
+			</div>
+
+			<div class="col-md-3 mb-sm-2">
+				<h5 class="fontWhite">Formas de Pagamento</h5>
+				<img class="bandeirasCartao" src="/assets/images/visa.png">
+				<img class="bandeirasCartao" src="/assets/images/master.png">
+				<img class="bandeirasCartao" src="/assets/images/paypal.png">
+				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+			</div>
+			<div>
+				<p class="text-black-50 mx-auto text-center mb-0 mt-2">
+					Candy Store | Av. Sete de Setembro, 211 - 165A - Icaraí, Niterói - RJ, 24230-252
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
