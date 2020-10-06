@@ -22,3 +22,5 @@ $(function () {
 $('.carousel').carousel({
     interval: 4000
 })
+
+$('.toast').toast('show');
