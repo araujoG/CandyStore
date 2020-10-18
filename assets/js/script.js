@@ -1,5 +1,13 @@
+<reference path="../../typings/globals/jquery/index.d.ts" />
 $(function () {
+    $('.carousel').carousel({
+        interval: 4000
+    })
+    
+    $('.toast').toast('show');
+
     $('.alert').alert()
+    
     var quantitiy = 0;
     $('.diminuiQuantidade').click(function (e) {
         campo = $(this).attr('data-field');
@@ -20,8 +28,3 @@ $(function () {
     });
 
 })
-$('.carousel').carousel({
-    interval: 4000
-})
-
-$('.toast').toast('show');
