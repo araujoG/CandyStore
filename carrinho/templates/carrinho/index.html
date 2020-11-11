@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+Carrinho
+{% endblock %}
+
+{% block corpo %}
+	<div class="container py-4">
+		<h1 class="humbleBoys ml-2">Meu Carrinho</h1>
+		<div class="row my-4">
+			<div class="col-lg-8">
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Barra de Chocolate Toblerone Sabor Meio Amargo 100g Barra de Chocolate Toblerone Sabor Meio Amargo 100g</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 font-25"><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade1"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade1" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade1"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Barra de Chocolate Toblerone Sabor Meio Amargo 100g</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 font-25"><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade2"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade2" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade2"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-lg-3 col-md-5">
+								<img class="img-fluid w-100" src="assets/images/toblerone2.png"
+									alt="chocolate toblerone meio amargo">
+							</div>
+							<div class="col-lg-9 col-md-7 mt-1">
+								<div class="d-flex justify-content-between ">
+									<div>
+										<h5>Barra de Chocolate Toblerone Sabor Meio Amargo 100g Barra de Chocolate Toblerone Sabor Meio Amargo 100g Barra de Chocolate Toblerone Sabor Meio Amargo 100g</h5>
+										<p class="mb-3 text-muted text-uppercase small">Marca</p>
+									</div>
+									<a href="#" type="button" class="mx-3 mt-1 font-25"><i
+											class="fas fa-trash-alt"></i></a>
+								</div>
+								<div class="row align-items-center justify-content-between">
+									<div class="d-flex m-2 inputQuantidade">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button type="button" id="" class="diminuiQuantidade btn btn-primary"
+													data-type="minus" data-field="quantidade3"><i
+														class="fas fa-minus"></i></button>
+											</div>
+											<input type="text" id="quantidade3" class="form-control" value="1" min="0"
+												max="999">
+											<div class="input-group-append">
+												<button type="button" id="" class="aumentaQuantidade btn btn-success"
+													data-type="plus" data-field="quantidade3"><i
+														class="fas fa-plus"></i></button>
+											</div>
+										</div>
+									</div>
+									<p class="mb-0 precoCarrinho align-items-center mx-auto">
+										R$ 9.99</p>
+								</div>
+								<a href="#!" type="button" class="text-pink"><i class="fas fa-heart mr-1 mt-3"></i>
+									Lista de Desejos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+
+						<h5 class="mb-3">Valor total</h5>
+
+						<ul class="list-group list-group-flush">
+							<li
+								class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+								Subtotal
+								<span class="preco text-body">R$ 53.98</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+								Frete
+								<strong class="text-success">Gratis</strong>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+								<div>
+									<span><strong>Valor Final</strong></span>
+								</div>
+								<span class="preco text-body">R$ 53.98</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary mr-auto btn-block pb-2 arredondarBottom mb-3">
+					Finalizar Compra
+				</button>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

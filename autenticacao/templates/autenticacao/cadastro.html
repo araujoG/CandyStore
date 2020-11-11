@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+Cadastro
+{% endblock %}
+
+{% block corpo %}
+	<div class="">
+		<div class="card col-10 col-md-8 col-lg-7 border-secondary my-5 px-5 py-4 w-90 mx-auto">
+			<form>
+				<h5 class="mb-3 carterOne">Dados Pessoais</h5>
+				<div class="row mb-2">
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" id="inputNome" placeholder="Nome">
+						<div class="invalid-feedback">
+							Preencha o seu nome.
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" id="inputSobrenome" placeholder="Sobrenome">
+						<div class="invalid-feedback">
+							Preencha o seu sobrenome.
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+					<div class="invalid-feedback">
+						Preencha com um email válido.
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input type="password" class="form-control" id="inputSenha" placeholder="Senha">
+						<div id="senhaFeedback" class="invalid-feedback">
+							Preencha com uma senha que possua entre 4 e 20 caracteres.
+						</div>
+					</div>
+					<div class=" col-md-6">
+						<div class="form-group">
+							<input type="password" class="form-control" id="inputConfirmaSenha"
+								placeholder="Confirme a senha">
+							<div id="confirmaSenhaEquals" class="invalid-feedback">
+								Confirme sua senha.
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" id="inputCpf" placeholder="CPF">
+						<div class="invalid-feedback">
+							Preencha com um cpf válido.
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" id="inputTelefone">
+						<div class="invalid-feedback">
+							Preencha com um telefone válido.
+						</div>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+
+					<div class="form-group col-md-6 my-auto">
+						<label class="font-weight-bolder">Data de nascimento</label>
+						<input type="date" class="form-control" id="inputNascimento" placeholder="Data de nascimento">
+						<div class="invalid-feedback">
+							Informe sua data de nascimento.
+						</div>
+					</div>
+
+					<div class="form-group col-md-6 w-100 my-auto">
+						<label class="font-weight-bolder">Sexo</label>
+						<div class="custom-control custom-radio">
+							<input class="custom-control-input form-check-input" type="radio" name="inputSexo"
+								id="radioFeminino" value="1">
+							<label class="custom-control-label" for="radioFeminino">Feminino</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input class="custom-control-input form-check-input" type="radio" name="inputSexo"
+								id="radioMasculino" value="2">
+							<label class="custom-control-label" for="radioMasculino">Masculino</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input class="custom-control-input" type="radio" name="inputSexo" id="radioNaoInformar"
+								value="3">
+							<label class="custom-control-label" for="radioNaoInformar">Prefiro não informar</label>
+						</div>
+						<div id="sexoFeedback" class="invalid-feedback">
+							Selecione um sexo.
+						</div>
+					</div>
+
+				</div>
+				<h5 class="mb-3 carterOne">Endereço</h5>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label class="font-weight-bolder" for="inputCep">CEP</label>
+						<input type="text" class="form-control" id="inputCep" placeholder="CEP">
+						<div class="invalid-feedback">
+							Preencha com o seu CEP.
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="font-weight-bolder" for="inputEstado">Estado</label>
+						<select id="inputEstado" class="form-control custom-select">
+							<option value="">-- Selecione um estado --</option>
+							<option value="AC"> Acre (AC)</option>
+							<option value="AL"> Alagoas (AL)</option>
+							<option value="AP"> Amapá (AP)</option>
+							<option value="AM"> Amazonas (AM)</option>
+							<option value="BA"> Bahia (BA)</option>
+							<option value="CE"> Ceará (CE)</option>
+							<option value="DF"> Distrito Federal (DF)</option>
+							<option value="ES"> Espírito Santo (ES)</option>
+							<option value="GO"> Goiás (GO)</option>
+							<option value="MA"> Maranhão (MA)</option>
+							<option value="MT"> Mato Grosso (MT)</option>
+							<option value="MS"> Mato Grosso do Sul (MS)</option>
+							<option value="MG"> Minas Gerais (MG)</option>
+							<option value="PA"> Pará (PA)</option>
+							<option value="PB"> Paraíba (PB)</option>
+							<option value="PR"> Paraná (PR)</option>
+							<option value="PE"> Pernambuco (PE)</option>
+							<option value="PI"> Piauí (PI)</option>
+							<option value="RJ"> Rio de Janeiro (RJ)</option>
+							<option value="RN"> Rio Grande do Norte (RN)</option>
+							<option value="RS"> Rio Grande do Sul (RS)</option>
+							<option value="RO"> Rondônia (RO)</option>
+							<option value="RR"> Roraima (RR)</option>
+							<option value="SC"> Santa Catarina (SC)</option>
+							<option value="SP"> São Paulo (SP)</option>
+							<option value="SE"> Sergipe (SE)</option>
+							<option value="TO"> Tocantins (TO) </option>
+						</select>
+						<div class="invalid-feedback">
+							Selecione o seu estado.
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label class="font-weight-bolder" for="inputCidade">Cidade</label>
+						<input type="text" id="inputCidade" class="form-control" placeholder="Cidade">
+						<div class="invalid-feedback">
+							Preencha com a sua cidade.
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="font-weight-bolder" for="inputBairro">Bairro</label>
+						<input type="text" class="form-control" id="inputBairro" placeholder="Bairro">
+						<div class="invalid-feedback">
+							Preencha com o seu bairro.
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-9">
+						<label class="font-weight-bolder" for="Endereco">Endereço</label>
+						<input type="text" class="form-control" id="inputEndereco" placeholder="Endereço">
+						<div class="invalid-feedback">
+							Preencha com o seu endereço.
+						</div>
+					</div>
+					<div class="form-group col-md-3">
+						<label class="font-weight-bolder" for="Numero">Número</label>
+						<input type="text" class="form-control" id="inputNumero" placeholder="Número">
+						<div class="invalid-feedback">
+							Preencha com um número válido.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bolder" for="Complemento">Complemento</label>
+					<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento(Opicional)">
+				</div>
+				<div class="form-group">
+					<div class="custom-control custom-checkbox mb-2">
+						<input type="checkbox" value="remember-me" class="custom-control-input" id="promoEmail">
+						<label class="custom-control-label" for="promoEmail">Desejo receber e-mails com ofertas da Candy
+							Store.</label>
+					</div>
+				</div>
+				<div class="modal fade show" id="exampleModalCenter" tabindex="-1"
+					aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title font-weight-bold" id="exampleModalCenterTitle">Deseja mesmo continuar?</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Você tem certeza que deseja voltar a pagina anterior? Você perderá todos os dados ja preenchidos no seu cadastro ao executar essa ação.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Voltar ao Cadastro</button>
+								<button type="button" class="btn btn-primary" onclick="location.href='/login.html'">Continuar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-end">
+					<button type="button" class="btn btn-outline-danger mr-2" data-toggle="modal" data-target="#exampleModalCenter">Cancelar</button>
+					<button id="finalizarCadastro" type="button" class="btn btn-primary">Finalizar</button></div>
+			</form>
+		</div>
+
+	</div>
+{% endblock %}
