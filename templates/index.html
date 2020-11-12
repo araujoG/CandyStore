@@ -38,8 +38,8 @@
 					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
 						<h5 class="card-title">{{ produto.nome }}</h5>
-						<p class="preco">{{ produto.preco }}</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
+						<p class="preco">R$ {{ produto.preco }}</p>
+						<button onclick="location.href='{{produto.getAbsoluteUrl}}'" class="btn btn-outline-primary">Comprar</button>
 					</div>
 				</div>
 			</div>
@@ -54,8 +54,8 @@
 					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
 						<h5 class="card-title">{{ produto.nome }}</h5>
-						<p class="preco">{{ produto.preco }}</p>
-						<button onclick="location.href='{% url 'produto:index' %}'" class="btn btn-outline-primary ">Comprar</button>
+						<p class="preco">R$ {{ produto.preco }}</p>
+						<button onclick="location.href='{{produto.getAbsoluteUrl}}'" class="btn btn-outline-primary">Comprar</button>
 					</div>
 				</div>
 			</div>
@@ -83,8 +83,8 @@
 					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
 						<h5 class="card-title">{{ produto.nome }}</h5>
-						<p class="preco">{{ produto.preco }}</p>
-						<button onclick="location.href='{% url 'produto:index' %}'" class="btn btn-outline-primary ">Comprar</button>
+						<p class="preco">R$ {{ produto.preco }}</p>
+						<button onclick="location.href='{{produto.getAbsoluteUrl}}'" class="btn btn-outline-primary">Comprar</button>
 					</div>
 				</div>
 			</div>

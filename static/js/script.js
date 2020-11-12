@@ -13,7 +13,7 @@ $(document).ready(function () {
 $(function () {
     $("#starRateAvg").rateYo({
         readOnly: true,
-        rating: 3.5,
+        rating: parseFloat($("#starRateAvg").data('av')),
         maxValue: 5,
         numStars: 5,
         starWidth: "25px"

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-Produto    
+{{produto.nome}}
 {% endblock %}
 
 {% block corpo %}
@@ -19,8 +19,8 @@ Produto
 			<div class="row">
 				<div class="col-lg-5 d-flex align-items-center mb-3 mb-lg-0">
 					<div>
-						<img class="img-fluid w-100 mb-2" src="assets/images/toblerone2.png"
-							alt="chocolate toblerone meio amargo">
+						<img class="img-fluid w-100 mb-2" src="{% static 'images/'%}{{ produto.imagem }}"
+							alt="{{produto.nome}}">
 						<div class="d-flex justify-content-around">
 							<a href="#" type="button" class="text-pink"><i class="fas fa-heart"></i>
 								Lista de Desejos</a>
@@ -31,27 +31,27 @@ Produto
 				</div>
 				<div class="col-lg-7">
 					<div class="card border-0">
-						<h2 class="mb-0 carterOne"><strong>Barra de Chocolate Toblerone Sabor Meio Amargo 100g</strong>
+						<h2 class="mb-0 carterOne"><strong>{{produto.nome}}</strong>
 						</h2>
 						<div class="mb-2">Marca: Toblerone</div>
 						<div class="d-flex align-items-center mb-2">
-							<div id="starRateAvg"></div>
+							<div id="starRateAvg" data-av="{{ produto.avaliacao }}"></div>
 							<div id="starRateNumberAvg" class="badgeStartRate"></div>
-							<span class="ml-4 text-black-50">Código: 8410569</span>
+							<span class="ml-4 text-black-50">Código: {{produto.id}}</span>
 						</div>
 						<hr class="mt-0 mb-3">
 						<div class="d-flex align-items-center mb-4">
 							<h5 class="mr-2">Vendido e entregue por:</h5><img class="brandInline"
-								src="assets/images/candyStoreLogo4.png"></img>
+								src="{% static 'images/'%}{{ produto.loja.logo }}" alt="{{ produto.loja.nome}}"></img>
 						</div>
 						<div class="row mb-4">
 							<div class="col-sm-7 col-md-6 mb-3 mb-sm-0">
-								<h5 class="mb-3">de <strike class="ml-1 ">R$ 159,90</strike></h5>
+								<h5 class="mb-3">de <strike class="ml-1 ">{{ produto.preco }}</strike></h5>
 								<div class="d-flex align-items-center mb-2">
 									<h4 class="mb-0">por</h4>
-									<h4 class="precoCarrinho ml-1 mb-0">R$ 99,90</h4>
+									<h4 class="precoCarrinho ml-1 mb-0">R$ {{ produto.preco }}</h4>
 								</div>
-								<h5 class="mb-0">ou em até 10x de R$9,99</h5>
+								<h5 class="mb-0">ou em até 10x de R$8,99</h5>
 							</div>
 							<div class="col-sm-5 col-md-6 d-flex align-items-center justify-content-center">
 								<button class="btn btn-primary adicionarCarrinho">
@@ -75,28 +75,13 @@ Produto
 		</div>
 		<div class="card px-4 py-4 mb-3">
 			<h3 class="carterOne mb-3">Informações do Produto</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida elit nec sapien interdum
-				sagittis. Nulla dignissim erat eu mauris dignissim, ac vestibulum est laoreet. Phasellus sapien metus,
-				cursus a tempus at, viverra laoreet sapien. Donec ullamcorper sit amet nibh eget aliquam. Donec sodales
-				mattis orci, ut consequat tortor pretium eu. Pellentesque tincidunt, nunc non condimentum mattis, metus
-				risus dignissim lacus, at consequat justo odio sit amet dui. Cras ut metus eleifend est ultricies
-				aliquam vel sit amet ante. In dignissim pellentesque suscipit. Vivamus at nisi dapibus, accumsan neque
-				in, consectetur nunc. Nam efficitur ex faucibus, imperdiet ex eget, vehicula purus. Donec commodo
-				sagittis hendrerit. Proin semper eget sapien id porta. Proin sed ultricies nunc. </p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida elit nec sapien interdum
-				sagittis. Nulla dignissim erat eu mauris dignissim, ac vestibulum est laoreet. Phasellus sapien metus,
-				cursus a tempus at, viverra laoreet sapien. Donec ullamcorper sit amet nibh eget aliquam. Donec sodales
-				mattis orci, ut consequat tortor pretium eu. Pellentesque tincidunt, nunc non condimentum mattis, metus
-				risus dignissim lacus, at consequat justo odio sit amet dui. Cras ut metus eleifend est ultricies
-				aliquam vel sit amet ante. In dignissim pellentesque suscipit. Vivamus at nisi dapibus, accumsan neque
-				in, consectetur nunc. Nam efficitur ex faucibus, imperdiet ex eget, vehicula purus. Donec commodo
-				sagittis hendrerit. Proin semper eget sapien id porta. Proin sed ultricies nunc. </p>
+			<p>{{ produto.descricao }}</p>
 		</div>
 		<div class="card px-4 py-4 mb-3">
 			<h3 class="carterOne mb-3">Avaliações</h3>
 			<div class="card px-4 py-3 mb-2">
 				<div class="d-flex align-items-center">
-					<img class="rounded-circle profilePhotoInline mr-1" src="assets/images/profile1.png"
+					<img class="rounded-circle profilePhotoInline mr-1" src="{% static '/images/profile1.png'%}"
 						alt="Imagem de perfil do pedro jorge garcia">
 					<h5 class="my-0 ml-1">Pedro Jorge Garcia</h5>
 				</div>
@@ -132,7 +117,7 @@ Produto
 			</div>
 			<div class="card px-4 py-3 mb-2">
 				<div class="d-flex align-items-center">
-					<img class="rounded-circle profilePhotoInline mr-1" src="assets/images/profile2.png"
+					<img class="rounded-circle profilePhotoInline mr-1" src="{% static '/images/profile2.png'%}"
 						alt="Imagem de perfil do emerson souza">
 					<h5 class="my-0 ml-1">Emerson Souza</h5>
 				</div>
@@ -168,7 +153,7 @@ Produto
 			</div>
 			<div class="card px-4 py-3">
 				<div class="d-flex align-items-center">
-					<img class="rounded-circle profilePhotoInline mr-1" src="assets/images/profile3.png"
+					<img class="rounded-circle profilePhotoInline mr-1" src="{% static '/images/profile3.png'%}"
 						alt="Imagem de perfil da luiza sonza">
 					<h5 class="my-0 ml-1">Luiza Sonza</h5>
 				</div>

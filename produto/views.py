@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from produto.models import Produto
 
-def index(request):
-    frase = "Esta frase está sendo exibida pela página index.html de produto."
-    return render(request, 'produto/index.html', {'frase': frase})
+def paginaProduto(request,id,slugProduto):
+    produto = get_object_or_404(Produto, id = id )
+    return render(request, 'produto/paginaProduto.html', {'produto': produto})

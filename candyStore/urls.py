@@ -20,7 +20,7 @@ from candyStore import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('carrinho/', include('carrinho.urls')),
-    path('produto/', include('produto.urls')),
+    path('produtos/', include('produto.urls')),
     path('autenticacao/', include('autenticacao.urls')),
     path('admin/', admin.site.urls)
 ]
