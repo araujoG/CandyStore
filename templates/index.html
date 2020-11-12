@@ -9,13 +9,13 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="assets/images/festivalDeChocolates.png" alt="Primeiro Slide">
+				<img class="d-block w-100" src="{% static 'images/festivalDeChocolates.png'%}" alt="Primeiro Slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="assets/images/freteGratis.png" alt="Segundo Slide">
+				<img class="d-block w-100" src="{% static 'images/freteGratis.png'%}" alt="Segundo Slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="assets/images/dentaduraPromocao.png" alt="Terceiro Slide">
+				<img class="d-block w-100" src="{% static 'images/dentaduraPromocao.png'%}" alt="Terceiro Slide">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselPromocao" role="button" data-slide="prev">
@@ -32,107 +32,34 @@
 		<h1 class="mb-3 humbleBoys text-warning ml-2" id="maisVendidos">Mais Vendidos</h1>
 
 		<div class="row mb-3">
+		{% for produto in maisVendidos %}
 			<div class="col-lg-4 col-md-6">
 				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/MEM.png" alt="M e M chocolate">
+					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
-						<h5 class="card-title">Confeito M&M chocolate ao leite</h5>
-						<p class="preco">R$ 99,99</p>
+						<h5 class="card-title">{{ produto.nome }}</h5>
+						<p class="preco">{{ produto.preco }}</p>
 						<button class="btn btn-outline-primary ">Comprar</button>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINIAMORAS.png" alt="Fini Amoras">
-					<div class="card-body text-center">
-						<h5 class="card-title">Bala de gelatina fini amoras</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINIDENTADURAS.png"
-						alt="Dentaduras Fini">
-					<div class="card-body text-center">
-						<h5 class="card-title">Bala de gelatina fini dentaduras</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/LAKA.png" alt="Lacta Laka">
-					<div class="card-body text-center">
-						<h5 class="card-title">Barra de chocolate lacta laka</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/FINITUBES.png" alt="Tubes Fini">
-					<div class="card-body text-center">
-						<h5 class="card-title">Bala de gelatina fini tubes</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/KITKATAOLEITE.png"
-						alt="KitKat Ao Leite">
-					<div class="card-body text-center">
-						<h5 class="card-title">Chocolate KitKat ao leite</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 		<h1 class="mb-3 text-warning humbleBoys ml-2" id="maisVendidos">Lançamentos</h1>
 
 		<div class="row mb-3">
-
+			{% for produto in lancamentos %}
 			<div class="col-lg-4 col-md-6">
 				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone2.png"
-						alt="chocolate toblerone meio amargo">
+					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
-						<h5 class="card-title">Chocolate toblerone meio amargo</h5>
-						<p class="preco">R$ 99,99</p>
+						<h5 class="card-title">{{ produto.nome }}</h5>
+						<p class="preco">{{ produto.preco }}</p>
 						<button onclick="location.href='{% url 'produto:index' %}'" class="btn btn-outline-primary ">Comprar</button>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone1.png"
-						alt="chocolate Toblerone ao leite">
-					<div class="card-body text-center">
-						<h5 class="card-title">Chocolate toblerone ao leite</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/toblerone3.png"
-						alt="chocolate toblerone branco">
-					<div class="card-body text-center">
-						<h5 class="card-title">Chocolate toblerone branco</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 
@@ -150,39 +77,18 @@
 	<div class="mx-auto w-75">
 		<h1 class="mb-3 text-warning humbleBoys ml-2" id="harryPotter">Festival Harry Potter</h1>
 		<div class="row mb-3">
+			{% for produto in hp %}
 			<div class="col-lg-4 col-md-6">
 				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpfeijoes.png"
-						alt="feijõezinhos de todos os sabores harry potter">
+					<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}" alt="{{ produto.nome }}">
 					<div class="card-body text-center">
-						<h5 class="card-title">Feijõezinhos de todos os sabores harry potter</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
+						<h5 class="card-title">{{ produto.nome }}</h5>
+						<p class="preco">{{ produto.preco }}</p>
+						<button onclick="location.href='{% url 'produto:index' %}'" class="btn btn-outline-primary ">Comprar</button>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpcerveja.png"
-						alt="cerveja amanteigada harry potter">
-					<div class="card-body text-center">
-						<h5 class="card-title">Cerveja amanteigada harry potter</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="card mb-3">
-					<img class="card-img w-100 mx-auto mt-4" src="assets/images/hpsapo.png"
-						alt="sapos de chocolate harry potter">
-					<div class="card-body text-center">
-						<h5 class="card-title">Chocolate sapos ao leite harry potter</h5>
-						<p class="preco">R$ 99,99</p>
-						<button class="btn btn-outline-primary ">Comprar</button>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 
 

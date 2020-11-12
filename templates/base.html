@@ -29,7 +29,7 @@
 	<div class="bgimage2 l-2 d-block d-lg-none"></div>
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<div class="container carterOne">
-			<a class="navbar-brand" href="/"><img class="m-2 brandLogo" src='assets/images/candyStoreLogo3.png'
+			<a class="navbar-brand" href="/"><img class="m-2 brandLogo" src="{% static 'images/candyStoreLogo3.png'%}"
 					alt="Candy Store"></a>
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
 				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
@@ -58,7 +58,7 @@
 				</form>
 				<div class="navbar-nav">
 					<a class="nav-link nav-item" href="{% url 'carrinho:index'%}">Meu Carrinho</a>
-					<a class="nav-link nav-item" href="{% url 'autenticacao:entrar'%}"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+					<a class="nav-link nav-item" href="{% url 'autenticacao:entrar' %}"><i class="fas fa-sign-in-alt"></i> Entrar</a>
 				</div>
 			</div>
 		</div>
@@ -91,10 +91,10 @@
 
 			<div class="col-md-3 mb-sm-2">
 				<h5 class="fontWhite">Formas de Pagamento</h5>
-				<img class="bandeirasCartao" src="/assets/images/visa.png">
-				<img class="bandeirasCartao" src="/assets/images/master.png">
-				<img class="bandeirasCartao" src="/assets/images/paypal.png">
-				<img class="bandeirasCartao" src="/assets/images/boleto.png">
+				<img class="bandeirasCartao" src="{% static 'images/master.png'%}">
+				<img class="bandeirasCartao" src="{% static 'images/visa.png'%}">
+				<img class="bandeirasCartao" src="{% static 'images/paypal.png'%}">
+				<img class="bandeirasCartao" src="{% static 'images/boleto.png'%}">
 			</div>
 			<div>
 				<p class="text-black-50 mx-auto text-center mb-0 mt-2">
