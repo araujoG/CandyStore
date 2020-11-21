@@ -96,6 +96,12 @@ body{
 
 .card-title{
     text-transform: capitalize;
+    margin: 0;
+}
+
+.maxLines{
+    min-height: 48px !important;
+    max-height: 48px !important;
 }
 
 .carousel-indicators li{
@@ -217,4 +223,8 @@ body{
 
 .inputCepFrete{
     width: 170px;
+}
+
+.dropdown-menu.show, .dropdown-menu{
+    width: max-content !important;
 }

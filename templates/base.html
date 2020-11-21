@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
 	<link rel="stylesheet" href="{% static 'css/all.css'%}"> <!-- Font awesome->css->all.css -->
 	<link rel="stylesheet" href="{% static 'css/jquery.rateyo.min.css'%}">
-	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
+	<link rel="stylesheet" href="{% static 'css/styles.css'%}?version={%now "U"%}">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 	<div class="bgimage2 l-2 d-block d-lg-none"></div>
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<div class="container carterOne">
-			<a class="navbar-brand" href="/"><img class="m-2 brandLogo" src="{% static 'images/candyStoreLogo3.png'%}"
+			<a class="navbar-brand mr-3" href="/"><img class="m-2 brandLogo" src="{% static 'images/candyStoreLogo3.png'%}"
 					alt="Candy Store"></a>
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
 				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
@@ -38,18 +38,19 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<div class="navbar-nav my-sm-2 my-lg-auto">
 					<div class="dropdown">
-						<a class="nav-link nav-item dropdown-toggle " data-toggle="dropdown" href="#">Categorias</a>
-						<div class="dropdown-menu dropdown-menu w-25">
-							<a class="dropdown-item" href="#">Balas</a>
-							<a class="dropdown-item" href="#">Chicletes</a>
-							<a class="dropdown-item" href="#">Chocolates</a>
-							<a class="dropdown-item" href="#">Pirulitos</a>
+						<a class="nav-link nav-item dropdown-toggle" data-toggle="dropdown" href="#">Categorias</a>
+						<div class="dropdown-menu">
+						{% for c in listaCategorias %}
+							<a class="dropdown-item" href="#">{{ c.nome }}</a>
+						{% endfor %}
+							<a class="dropdown-item border-top" href="{% url 'produto:listaProduto'%}">Todos os produtos</a>
 						</div>
 					</div>
 				</div>
-				<form class="form-inline mb-sm-2 my-lg-auto mx-auto">
+				<form method="get" action="{% url 'produto:listaProduto'%}" class="form-inline mb-sm-2 my-lg-auto mx-auto">
 					<div class="input-group">
-						<input class="form-control mr-0" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+						{% comment %} <input class="form-control mr-0" placeholder="Pesquisar" aria-label="Pesquisar"> {% endcomment %}
+						{{pesquisa.nome}}
 						<div class="input-group-append">
 							<button class="btn btn-warning fontWhite botaoPesquisa" type="submit"><i
 									class="fas fa-search"></i></button>
@@ -111,7 +112,8 @@
 	<script src="{% static 'js/popper.js'%}"></script>
 	<script src="{% static 'js/bootstrap.js'%}"></script>
 	<script src="{% static 'js/jquery.rateyo.min.js'%}"></script>
-	<script src="{% static 'js/script.js'%}"></script>
+	<script src="{% static 'js/clamp.min.js'%}"></script>
+	<script src="{% static 'js/script.js'%}?version={%now "U"%}"></script>
 
 </body>
 

@@ -3,6 +3,7 @@ from categoria.models import Categoria
 from loja.models import Loja
 from django.utils.text import slugify
 from django.urls import reverse
+from decimal import Decimal
 
 # Create your models here.
 
@@ -34,3 +35,9 @@ class Produto(models.Model):
 
     def getAbsoluteUrl(self):
         return reverse('produto:paginaProduto', args=[self.id, self.slug])
+
+    def precoOriginal(self):
+        return float(self.preco)*1
+
+    def getPrecoParcelado(self):
+        return ((float(self.preco)/10)//0.01)/100

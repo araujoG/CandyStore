@@ -7,7 +7,13 @@ $(document).ready(function () {
     $('#inputCepFrete').mask('00.000-000');
     $('#inputNumero').mask('0#');
     $("a[href='#']").attr("href", "javascript:void(0);");
-    
+    maximoDeLinhas('maxLines',2);
+});
+
+$('.dropdown').hover(function () {
+    $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(500);//strop(clearQueue, jumpToEnd)
+}, function () {
+    $(this).find('.dropdown-menu').stop(true, true).delay(80).fadeOut(500);
 });
 
 $(function () {
@@ -101,21 +107,21 @@ $(function () {
 
 
     $('#avRate1').ready(function () {
-        let like = $("#avRate1"+ " #like").data("like");
+        let like = $("#avRate1" + " #like").data("like");
         let dislike = $("#avRate1" + " #dislike").data("dislike");
         $("#avRate1" + " #like").text("(" + like + ")");
         $("#avRate1" + " #dislike").text("(" + dislike + ")");
     });
 
     $('#avRate2').ready(function () {
-        let like = $("#avRate2"+ " #like").data("like");
+        let like = $("#avRate2" + " #like").data("like");
         let dislike = $("#avRate2" + " #dislike").data("dislike");
         $("#avRate2" + " #like").text("(" + like + ")");
         $("#avRate2" + " #dislike").text("(" + dislike + ")");
     });
 
     $('#avRate3').ready(function () {
-        let like = $("#avRate3"+ " #like").data("like");
+        let like = $("#avRate3" + " #like").data("like");
         let dislike = $("#avRate3" + " #dislike").data("dislike");
         $("#avRate3" + " #like").text("(" + like + ")");
         $("#avRate3" + " #dislike").text("(" + dislike + ")");
@@ -147,7 +153,7 @@ $(function () {
     })
 
     $(".dislikeBtn").click(function () {
-        
+
         field = $(this).attr('data-field');
         like = $(field + " #like").data("like");
         dislike = $(field + " #dislike").data("dislike");
@@ -306,4 +312,13 @@ function validaIsEmpty(campo) {
         campo.addClass("is-valid")
         return true
     }
+}
+
+function maximoDeLinhas(classe, numLinhas) {
+    var elementos = document.getElementsByClassName(classe);
+    for (let i = 0; i < elementos.length; i++) {
+        e = elementos[i].children[0]
+        $clamp(e, { 'clamp': numLinhas})
+    }
+    return true;
 }
