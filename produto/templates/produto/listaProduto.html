@@ -15,11 +15,11 @@
 				{% for produto in produtos %}
 				<div class="col-lg-3 col-md-4 col-sm-6">
 					<div class="card mb-3">
-						<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/'%}{{ produto.imagem }}"
+						<img class="card-img w-100 mx-auto mt-4" src="{% static 'images/produto/'%}{{ produto.imagem }}"
 							alt="{{ produto.nome }}">
 						<div class="card-body text-center">
-							<div class="d-flex justify-content-center align-items-center maxLines mb-3">
-								<h5 class="card-title " data-maxLines='1'>{{ produto.nome }}</h5>
+							<div class="d-flex justify-content-center align-items-center maxlinesh5 mb-3">
+								<h5 class="card-title " data-maxlines='1'>{{ produto.nome }}</h5>
 							</div>
 							<p class="preco">R$ {{ produto.preco }}</p>
 							<button onclick="location.href='{{produto.getAbsoluteUrl}}'"

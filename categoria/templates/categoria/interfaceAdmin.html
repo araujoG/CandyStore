@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navbarContent %}
+	<div class="d-flex align-items-center">
+		<div class="nav-item text-white d-block d-lg-none mr-2">Área Administrativa</div>
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
+			aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+	<div class="collapse navbar-collapse" id="menu">
+		<form method="get" action="{% url 'categoria:interfaceAdmin'%}" class="form-inline mb-sm-2 my-lg-auto mx-auto">
+			<div class="input-group">
+				{{pesquisa.nome}}
+				<div class="input-group-append">
+					<button class="btn btn-warning fontWhite botaoPesquisa" type="submit"><i
+							class="fas fa-search"></i></button>
+				</div>
+			</div>
+		</form>
+		<div class="navbar-nav d-none d-lg-block">
+			<div class="nav-item text-white">Área Administrativa</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block corpo %}
+
+	<div class="mx-auto container py-4">
+		{% if messages %}
+			{% for mensagem in messages %}
+				<div class="alert alert-warning alert-dismissible fade show mb-2" role="alert">
+					<strong>{{mensagem}}</strong> 
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			{% endfor %}
+		{% endif %}
+		<div class="d-flex justify-content-end carterOne mb-3">
+			
+			<a href="{% url 'categoria:cadastraCategoria'%}" type="button" class="mx-2 font-25 text-success"><i class="fas fa-plus-circle mr-1 "></i><strong class='text-dark'>Nova Categoria</strong></a>
+		</div>
+		{% if categorias %}
+			<div class="row">
+				{% for categoria in categorias %}
+                    <div class="mb-3 col-6 col-md-4 col-lg-3">
+                        <div class="card retoBottom">
+                            <div class="card-title carterOne m-2 maxLinesh4 justify-content-center align-items-center d-flex">
+								<h4 class="m-0 text-center">{{categoria.nome}}</h4>
+							</div>
+							<hr class='m-0'>
+                            <div class="card-body py-2">
+								<div class="carterOne text-black-50 maxLinesh5 d-flex align-items-center justify-content-center"> 
+									<div class="text-center">
+										{{categoria.getNumeroProdutos}} produtos cadastrados
+									</div>
+								</div>
+							</div>
+                        </div>
+						<div class="d-flex">
+							<div class="col-6 p-0">
+								<form action="{% url 'categoria:removeCategoria' categoria.id %}" method="POST">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-warning w-100 py-2 arredondarLeftBottom ">
+										<i class="font-20 text-white fas fa-trash-alt"></i>
+									</button>
+								</form>
+							</div>
+							<div class="col-6 p-0">
+								<button onclick='location.href="{% url "categoria:editaCategoria" categoria.id categoria.slug %}"' class="btn-primary w-100 py-2 arredondarRightBottom "><i class="fas fa-edit font-20 text-white"></i></button>
+							</div>
+						</div>
+                    </div>
+				{% endfor %}
+			</div>
+			{% if categorias.has_other_pages %}
+				<nav aria-label="Navegação de página exemplo">
+					<ul class="pagination justify-content-center">
+						{% if categorias.has_previous %}
+							<li class='page-item'><a class='page-link' href='?pagina={{ categorias.previous_page_number }}&nome={{nomePesquisado}}'>Anterior</a>
+							</li>
+						{% else %}
+							<li class='page-item disabled'><a class='page-link' href='#' tabindex='-1'>Anterior</a></li>
+						{% endif %}
+						{% for i in categorias.paginator.page_range %}
+							{% if categorias.number == i %}
+								<li class='page-item active'><a class='page-link' href='#'>{{ i }} </a></li>
+							{% else %}
+								<li class='page-item'><a class='page-link' href='?pagina={{ i }}&nome={{nomePesquisado}}'>{{ i }}</a></li>
+							{% endif %}
+						{% endfor %}
+						{% if categorias.has_next %}
+							<li class='page-item'><a class='page-link' href='?pagina={{ categorias.next_page_number }}&nome={{nomePesquisado}}'>Próxima</a></li>
+						{% else %}
+							<li class='page-item disabled'><a class='page-link' href='#' tabindex='-1'>Próxima</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			{% endif %}
+		{% else %}
+			<div class="d-flex justify-content-center align-items-center carterOne" style="min-height:400px">
+			Nenhum resultado foi encontrado...
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

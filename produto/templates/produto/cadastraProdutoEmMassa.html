@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block corpo %}
+	<div class="mx-auto container py-4">
+		<h2 class="carterOne">
+		{% if 'produto_id' in request.session %}
+			Alterar Produto
+		{% else %}
+			Cadastrar Produto
+		{% endif %}
+		</h2>
+		<form method= "POST" class="pb-4 carter" novalidate style="min-height: 323px" id="ajaxForm">
+			{% csrf_token %}
+			<div id="formulario" class="row mb-4">
+				{% include 'produto/formEmMassa.html'%}
+			</div>
+
+			<div class="d-flex justify-content-end">
+				<input id="botao" type="submit" class="btn btn-primary" value="Enviar Ajax"/>
+			</div>
+		</form>
+
+		<div  id="tabela" class="table-responsive"> <!-- Responsividade em small(overflow) -->
+        <table class="table w-auto table-hover mx-auto">
+            <thead>
+                <tr>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Categoria</h4></th>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Nome</h4></th> 
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Preço Unitário</h4></th>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Estoque</h4></th>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Valor em Estoque</h4></th>
+                <th scope="col" class="border-top-0"></th>
+                </tr>
+            </thead>
+            <tbody id="tabelaConteudo">
+			{% for item in listaProdutos %}
+				{% include 'produto/rowEstoqueAtivo.html'%}
+			{% endfor %}
+			</tbody>
+		</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+	<script>
+	
+	$(document).ready(function () {
+
+		$("#ajaxForm").submit(function(e){
+			e.preventDefault();
+			var serializedData = $(this).serialize();
+			$.ajax({
+				type:'POST',
+				url:'{% url "produto:cadastraProdutoEmMassa" %}',
+				data: serializedData,
+				success:function(data){
+					console.log(data)
+					if(data['sucesso']==true) {
+						var instance = JSON.parse(data["instance"]);
+						console.log("pk é ", instance[0]['pk'])
+						var fields = instance[0]["fields"];
+						console.log(fields)
+						$("#ajaxForm").trigger('reset')
+						
+					} else{
+						$('#formulario').html(data)
+					}
+				},
+			})
+		})
+		$("#tabela").on("blur", ".quantidade", function(e) {
+			let valor = $(this).val()
+			if (valor < 1 || valor > 99) {
+				console.log(valor, "atenção")
+				$(this).focus()
+				return
+			}
+			var serializedData = $(this).parent().serialize();
+			var tr = $(this).parent().parent().parent()
+			$.ajax({
+				type:'POST',
+				url:'{% url "produto:atualizaProdutoEmMassa" %}',
+				data: serializedData,
+				success:function(data){
+					console.log(serializedData)
+					tr.replaceWith(data)
+				},
+			})
+		})
+
+
+	})
+	</script>
+
+
+{% endblock %}

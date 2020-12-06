@@ -18,23 +18,18 @@
 </head>
 
 <body>
-	<div class="alert alert-secondary alert-dismissible fade show mb-0" role="alert">
-		<p>Principais elementos utilizados: List Group(Carrinho), Toast(notificação na home), D-flex(itens do carrinho), Carousel(home), Forms(Cadastro), input group(Barra de Pesquisa), Dropdown(categorias da navbar), collapse(navbar) e cards(diversos usos)</p>
-		<p>Paginas implementadas: Home(brand da navbar), Carrinho(Meu carrinho da navbar), login(Entrar da navbar) e Cadastro(botão cadastre-se da pagina de login)</p>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<i class="fas fa-times"></i>
-		</button>
-	</div>
 	<div class="bgimage d-none d-lg-block"> </div>
 	<div class="bgimage2 l-2 d-block d-lg-none"></div>
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<div class="container carterOne">
 			<a class="navbar-brand mr-3" href="/"><img class="m-2 brandLogo" src="{% static 'images/candyStoreLogo3.png'%}"
 					alt="Candy Store"></a>
+			{% block navbarContent %}
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
 				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			
 			<div class="collapse navbar-collapse" id="menu">
 				<div class="navbar-nav my-sm-2 my-lg-auto">
 					<div class="dropdown">
@@ -49,7 +44,6 @@
 				</div>
 				<form method="get" action="{% url 'produto:listaProduto'%}" class="form-inline mb-sm-2 my-lg-auto mx-auto">
 					<div class="input-group">
-						{% comment %} <input class="form-control mr-0" placeholder="Pesquisar" aria-label="Pesquisar"> {% endcomment %}
 						{{pesquisa.nome}}
 						<div class="input-group-append">
 							<button class="btn btn-warning fontWhite botaoPesquisa" type="submit"><i
@@ -62,8 +56,10 @@
 					<a class="nav-link nav-item" href="{% url 'autenticacao:entrar' %}"><i class="fas fa-sign-in-alt"></i> Entrar</a>
 				</div>
 			</div>
+			{% endblock %}
 		</div>
 	</nav>
+	
     {% block corpo %}
 
     {% endblock %}
@@ -104,7 +100,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="{% static 'js/jquery-3.5.1.min.js'%}"></script>
@@ -115,6 +111,8 @@
 	<script src="{% static 'js/clamp.min.js'%}"></script>
 	<script src="{% static 'js/script.js'%}?version={%now "U"%}"></script>
 
+	{% block javascript %}
+    {% endblock javascript %}
 </body>
 
 </html>

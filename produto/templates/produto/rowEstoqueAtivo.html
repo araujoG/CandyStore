@@ -1,0 +1,16 @@
+
+<tr>
+    <td>{{item.categoria}}</td>
+    <td>{{item.nome}}</td>
+    </td>
+    <td>{{item.preco}}</td>
+    <td>
+    <form method="POST" class="mx-auto">
+    {%csrf_token%}
+    {{item.inputEstoque.quantidade}}
+    {{item.inputEstoque.produtoId}}
+    </form>
+    </td>
+    <td name="valorEmEstoque">{{item.valorEmEstoque}}</td>
+    <td><button type="button" class="btn btn-danger">Remover</button></td>
+</tr>

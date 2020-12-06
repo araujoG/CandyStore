@@ -94,14 +94,27 @@ body{
     width: auto;
 }
 
+.imgAdmin{
+    max-height: 180px;
+    max-width: 180px;
+    height: auto;
+    width: auto;
+}
+
+
 .card-title{
     text-transform: capitalize;
     margin: 0;
 }
 
-.maxLines{
+.maxLinesh5{
     min-height: 48px !important;
     max-height: 48px !important;
+}
+
+.maxLinesh4{
+    height: 57.6px !important;
+    height: 57.6px !important;
 }
 
 .carousel-indicators li{
@@ -193,8 +206,8 @@ body{
     font-size: 25px;
 }
 
-.font-18{
-    font-size: 25px;
+.font-20{
+    font-size: 20px;
 }
 
 
@@ -202,10 +215,19 @@ body{
     color: #e05177;
 }
 
-.arredondarBottom{
+.retoBottom{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.arredondarLeftBottom{
     border-radius: 0;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px !important;
+}
+
+.arredondarRightBottom{
+    border-radius: 0;
+    border-bottom-right-radius: 30px  !important;
 }
 
 .modal-footer{

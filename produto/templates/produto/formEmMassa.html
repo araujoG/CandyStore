@@ -1,0 +1,50 @@
+<div class="col-6 mb-4">
+    <label>{{form.nome.label}}</label>
+    {% for error in form.nome.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.nome}}
+
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.categoria.label}}</label>
+    {% for error in form.categoria.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.categoria}}
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.marca.label}}</label>
+    {% for error in form.marca.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.marca}}
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.loja.label}}</label>
+    {% for error in form.loja.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.loja}}
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.imagem.label}}</label>
+    {% for error in form.imagem.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.imagem}}
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.estoque.label}}</label>
+    {% for error in form.estoque.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.estoque}}
+</div>
+<div class="col-3 mb-4">
+    <label>{{form.preco.label}}</label>
+    {% for error in form.preco.errors %}
+    <small class="text-primary">{{ error }}</small>
+    {% endfor %}
+    {{form.preco}}
+</div>

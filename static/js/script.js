@@ -7,7 +7,8 @@ $(document).ready(function () {
     $('#inputCepFrete').mask('00.000-000');
     $('#inputNumero').mask('0#');
     $("a[href='#']").attr("href", "javascript:void(0);");
-    maximoDeLinhas('maxLines',2);
+    maximoDeLinhas('maxLinesh5',2);
+    maximoDeLinhas('maxLinesh4',2);
 });
 
 $('.dropdown').hover(function () {
@@ -19,7 +20,7 @@ $('.dropdown').hover(function () {
 $(function () {
     $("#starRateAvg").rateYo({
         readOnly: true,
-        rating: parseFloat($("#starRateAvg").data('av')),
+        rating: parseFloat($("#starRateAvg").data('av').replace(",",'.')),
         maxValue: 5,
         numStars: 5,
         starWidth: "25px"
@@ -39,7 +40,7 @@ $(function () {
 
     $("#starRate2").rateYo({
         readOnly: true,
-        rating: 4,
+        rating: 4.2,
         maxValue: 5,
         numStars: 5,
         starWidth: "15px"
