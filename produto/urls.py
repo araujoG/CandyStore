@@ -12,5 +12,6 @@ urlpatterns = [
     path('administrar/cadastroEmMassa/atualiza', views.atualizaProdutoEmMassa, name='atualizaProdutoEmMassa'),
     path('administrar/cadastroEmMassa', views.cadastraProdutoEmMassa, name='cadastraProdutoEmMassa'),
     path('administrar/edita/<int:id>/<slug:slugProduto>/', views.editaProduto, name='editaProduto'),
-    path('administrar/remove/<int:id>/', views.removeProduto, name='removeProduto')
+    path('administrar/remove/<int:id>/', views.removeProduto, name='removeProduto'),
+    path('administrar/removeAjax/<int:id>/', views.removeProdutoAjax, name='removeProdutoAjax')
 ]

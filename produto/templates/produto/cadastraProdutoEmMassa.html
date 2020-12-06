@@ -39,8 +39,9 @@
 			{% endfor %}
 			</tbody>
 			<tfoot>
-				<tr>
-					<td>{{totalEmEstoque| floatformat:2 | intcomma }}</td>
+				<tr>	
+					<td colspan='4' ><h4 class="font-weight-bold m-0 mx-1 text-start">Total Em Estoque</h4></td>
+					<td id="totalEmEstoque" class="h4">R$ {{totalEmEstoque}}</td>
 				</tr>
 			</tfoot>
 		</table>
@@ -65,9 +66,8 @@
 				success:function(data){
 					console.log(data)
 					if(data['formValido']==true) {
-						if(data['estoque']!=0){
-							$('#tabelaConteudo').append(data['row'])
-						}
+						$('#tabelaConteudo').append(data['row'])
+						$('#totalEmEstoque').html("R$ "+data['totalEmEstoque'])
 						$("#ajaxForm").trigger('reset')
 						
 					} else{
@@ -76,9 +76,10 @@
 				},
 			})
 		})
+		
 		$("#tabela").on("blur", ".quantidade", function(e) {
 			let valor = $(this).val()
-			if (valor < 1 || valor > 99) {
+			if (valor < 0 || valor > 99) {
 				console.log(this)
 				$(this).focus()
 				return
@@ -91,20 +92,23 @@
 				data: serializedData,
 				success:function(data){
 					console.log(data)
-					tr.replaceWith(data)
+					$('#totalEmEstoque').html("R$ "+data['totalEmEstoque'])
+					tr.replaceWith(data['row'])
 				},
 			})
 		})
 
 		$("#tabela").on("click", ".remover", function(e) {
-			var arg = 
+			var serializedData = $(this).parent().serialize();
+			var arg = $(this).attr('data-id');
 			var tr = $(this).parent().parent().parent()
 			$.ajax({
 				type:'POST',
-				url:'{% url "produto:removeProduto" %}',
+				url: '/produto/administrar/removeAjax/' + arg +'/',
 				data: serializedData,
 				success:function(data){
-					console.log(data)
+					console.log("O item foi excluído")
+					$('#totalEmEstoque').html("R$ "+data['totalEmEstoque'])
 					tr.replaceWith(data)
 				},
 			})

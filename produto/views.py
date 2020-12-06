@@ -88,10 +88,15 @@ def cadastraProdutoEmMassa(request):
         if produtoForm.is_valid():
             produto = produtoForm.save(commit=False)
             produto.save()
+            produtos = Produto.objects.all()
+            total = 0
+            for p in produtos:
+                total += p.getValorEmEstoque()
+            total = round(total, 2)
             item = {'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque}
             template = loader.get_template('produto/rowEstoqueAtivo.html')
-            rowTabela = template.render({'item': item})
-            return JsonResponse({'row': rowTabela, 'formValido':True, 'estoque': item['estoqueItem']}, status=200)
+            rowTabela = template.render({'item': item}, request)
+            return JsonResponse({'row': rowTabela, 'formValido':True, 'estoque': item['estoqueItem'], 'totalEmEstoque':total}, status=200)
         else:
             print("formulario inválido")
             # return JsonResponse({"formulario": produtoForm.as_p(), 'status':'erro'}, status=200)
@@ -103,6 +108,7 @@ def cadastraProdutoEmMassa(request):
         for produto in produtos:
             valorEmEstoque += float(produto.preco) * float(produto.estoque)
             listaDeItens.append({'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque})
+        valorEmEstoque = round(valorEmEstoque, 2)
         produtoForm = ProdutoEmMassaForm()
     return render(request, 'produto/cadastraProdutoEmMassa.html', {'form': produtoForm, 'listaProdutos': listaDeItens, 'totalEmEstoque':valorEmEstoque})
 
@@ -117,7 +123,22 @@ def atualizaProdutoEmMassa(request):
             produto.estoque = qtd
             produto.save()
             produtos = Produto.objects.all()
-            print(produto.estoque)
+            total = 0
+            for p in produtos:
+                total += p.getValorEmEstoque()
+            total = round(total, 2)
             item = {'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque}
-            return render(request, 'produto/rowEstoqueAtivo.html', {'item': item})
+            template = loader.get_template('produto/rowEstoqueAtivo.html')
+            rowTabela = template.render({'item': item}, request)            
+            return JsonResponse({'row': rowTabela, 'totalEmEstoque':total}, status=200)
     return redirect('produto:cadastraProdutoEmMassa')
+
+def removeProdutoAjax(request, id):
+    produto = get_object_or_404(Produto, pk=id)
+    produto.delete()
+    produtos = Produto.objects.all()
+    total = 0
+    for p in produtos:
+        total += p.getValorEmEstoque()
+    total = round(total, 2)
+    return JsonResponse({'totalEmEstoque':round(total, 2)}, status=200)

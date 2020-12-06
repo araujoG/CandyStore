@@ -1,27 +1,23 @@
 
-{% if item.estoqueItem == 0 %}
-
-{% else %}
 <tr>
     <td>{{item.categoria}}</td>
     <td>{{item.nome}}</td>
     </td>
-    <td>{{item.preco}}</td>
+    <td>R$ {{item.preco}}</td>
     <td>
     <form method="POST" class="mx-auto">
-    {%csrf_token%}
+    {% csrf_token %}
     {{item.inputEstoque.quantidade}}
     {{item.inputEstoque.produtoId}}
     </form>
     </td>
-    <td name="valorEmEstoque">{{item.valorEmEstoque}}</td>
+    <td name="valorEmEstoque">R$ {{item.valorEmEstoque}}</td>
     <td>
     <form style="margin-bottom: 0px;"
             method ="post" novalidate>
         {% csrf_token %}
         {{ form.inputEstoque.produtoId }}
-        <button type="button" class="btn btn-danger remover" tabindex="-1">Remover</button>
+        <button type="button" class="btn btn-danger remover" data-id="{{item.id}}" tabindex="-1">Remover</button>
     </form>
     </td>
 </tr>
-{% endif %}

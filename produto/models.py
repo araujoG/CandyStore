@@ -42,3 +42,6 @@ class Produto(models.Model):
 
     def getPrecoParcelado(self):
         return ((float(self.preco)/10)//0.01)/100
+
+    def getValorEmEstoque(self):
+        return (float(self.preco)*float(self.estoque))
