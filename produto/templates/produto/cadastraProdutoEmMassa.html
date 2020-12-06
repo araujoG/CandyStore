@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block corpo %}
 	<div class="mx-auto container py-4">
 		<h2 class="carterOne">
@@ -37,6 +38,11 @@
 				{% include 'produto/rowEstoqueAtivo.html'%}
 			{% endfor %}
 			</tbody>
+			<tfoot>
+				<tr>
+					<td>{{totalEmEstoque| floatformat:2 | intcomma }}</td>
+				</tr>
+			</tfoot>
 		</table>
 		</div>
 	</div>
@@ -58,11 +64,10 @@
 				data: serializedData,
 				success:function(data){
 					console.log(data)
-					if(data['sucesso']==true) {
-						var instance = JSON.parse(data["instance"]);
-						console.log("pk é ", instance[0]['pk'])
-						var fields = instance[0]["fields"];
-						console.log(fields)
+					if(data['formValido']==true) {
+						if(data['estoque']!=0){
+							$('#tabelaConteudo').append(data['row'])
+						}
 						$("#ajaxForm").trigger('reset')
 						
 					} else{
@@ -74,7 +79,7 @@
 		$("#tabela").on("blur", ".quantidade", function(e) {
 			let valor = $(this).val()
 			if (valor < 1 || valor > 99) {
-				console.log(valor, "atenção")
+				console.log(this)
 				$(this).focus()
 				return
 			}
@@ -85,7 +90,21 @@
 				url:'{% url "produto:atualizaProdutoEmMassa" %}',
 				data: serializedData,
 				success:function(data){
-					console.log(serializedData)
+					console.log(data)
+					tr.replaceWith(data)
+				},
+			})
+		})
+
+		$("#tabela").on("click", ".remover", function(e) {
+			var arg = 
+			var tr = $(this).parent().parent().parent()
+			$.ajax({
+				type:'POST',
+				url:'{% url "produto:removeProduto" %}',
+				data: serializedData,
+				success:function(data){
+					console.log(data)
 					tr.replaceWith(data)
 				},
 			})

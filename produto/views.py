@@ -5,6 +5,7 @@ from produto.forms import PesquisaProdutoForm, ProdutoEmMassaForm, ProdutoForm, 
 from django.contrib import messages
 from django.http import JsonResponse
 from django.core import serializers
+from django.template import loader
 
 def paginaProduto(request,id,slugProduto):
     produto = get_object_or_404(Produto, id = id )
@@ -87,21 +88,23 @@ def cadastraProdutoEmMassa(request):
         if produtoForm.is_valid():
             produto = produtoForm.save(commit=False)
             produto.save()
-            # produto = Produto.objects.get(id=produto.id)
-            # produto['inputEstoque'] = QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id })
-            produtoSerializado = serializers.serialize('json', [ produto, ])
-            return JsonResponse({"instance": produtoSerializado, 'sucesso':True}, status=200)
+            item = {'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque}
+            template = loader.get_template('produto/rowEstoqueAtivo.html')
+            rowTabela = template.render({'item': item})
+            return JsonResponse({'row': rowTabela, 'formValido':True, 'estoque': item['estoqueItem']}, status=200)
         else:
+            print("formulario inválido")
             # return JsonResponse({"formulario": produtoForm.as_p(), 'status':'erro'}, status=200)
             return render(request, 'produto/formEmMassa.html', {'form': produtoForm})
     else:
         produtos = Produto.objects.all()
+        valorEmEstoque = 0.0
         listaDeItens = []
         for produto in produtos:
-            listaDeItens.append({'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id})})
-        print(listaDeItens)
+            valorEmEstoque += float(produto.preco) * float(produto.estoque)
+            listaDeItens.append({'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque})
         produtoForm = ProdutoEmMassaForm()
-    return render(request, 'produto/cadastraProdutoEmMassa.html', {'form': produtoForm, 'listaProdutos': listaDeItens})
+    return render(request, 'produto/cadastraProdutoEmMassa.html', {'form': produtoForm, 'listaProdutos': listaDeItens, 'totalEmEstoque':valorEmEstoque})
 
 def atualizaProdutoEmMassa(request):
     if request.POST:
@@ -114,6 +117,7 @@ def atualizaProdutoEmMassa(request):
             produto.estoque = qtd
             produto.save()
             produtos = Produto.objects.all()
-            item = {'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id})}
+            print(produto.estoque)
+            item = {'id':produto.id, 'categoria': produto.categoria.nome, 'nome': produto.nome, 'preco': produto.preco, 'valorEmEstoque': produto.preco*produto.estoque, 'inputEstoque':QuantidadeForm(initial={'quantidade': produto.estoque, 'produtoId': produto.id}), 'estoqueItem': produto.estoque}
             return render(request, 'produto/rowEstoqueAtivo.html', {'item': item})
     return redirect('produto:cadastraProdutoEmMassa')
